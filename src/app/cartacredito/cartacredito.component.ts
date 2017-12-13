@@ -1,4 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {CartacreditoService} from "../../provider/cartacredito.service";
+import {ActivatedRoute} from "@angular/router";
+import {CarteDiCredito} from "../cartacredito";
+import {User} from "../user";
 
 @Component({
   selector: 'app-cartacredito',
@@ -8,9 +12,46 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class CartacreditoComponent implements OnInit {
 
-  constructor() { }
+  listaCarte: Array<CarteDiCredito>;
+
+  user: User;
+
+  constructor(private cartaService: CartacreditoService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  saveupdate(cartacredito) {
+    cartacredito = +this.route.snapshot.paramMap.get('cartacredito');
+    if (cartacredito !== null) {
+      this.cartaService.save(cartacredito).subscribe(data => {
+        console.log(data);
+        cartacredito = new CarteDiCredito;
+      }, err => {
+        console.error(err);
+      })
+    } else {
+      this.cartaService.save(cartacredito).subscribe(data => {
+        console.log(data);
+      }, err => {
+        console.error(err);
+      })
+    }
+  }
+
+  delete(id) {
+    id = +this.route.snapshot.paramMap.get('cartacredito');
+    if (id !== 0) {
+      this.cartaService.delete(id).subscribe(data => {
+        id = data;
+        location.reload();
+      })
+    }
+  }
+
+  findByUserId(idUser) {
+    idUser = +this.route.snapshot.paramMap.get('user');
+
   }
 
 }
