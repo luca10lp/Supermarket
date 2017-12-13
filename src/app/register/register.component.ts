@@ -14,7 +14,7 @@ import {Location} from '@angular/common';
 })
 export class RegisterComponent implements OnInit {
 
-  private user: User;
+  user:User =  new User();
 
   constructor(private loginService: LoginService, private location: Location, private router: Router) {
 
@@ -23,12 +23,12 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  register(user){
-    this.loginService.register(user).subscribe(data => {
+  register(){
+    this.loginService.register(this.user).subscribe(data => {
       console.log(data);
       this.router.navigate(['login']);
     }, err=> {
-      console.error(err);
+      console.log(err);
     })
   }
 
