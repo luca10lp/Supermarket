@@ -1,3 +1,13 @@
-<p>
-  prodotto works!
-</p>
+<section class="c-promos">
+
+  <div class="media" *ngFor="let p of listaProdotti"
+       data-toggle="modal" data-target="#myModal">
+
+    <div class="c-promos__content">
+      <h3>{{p.nome}} {{p.marca}}</h3>
+    </div>
+
+  </div>
+
+  <a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a>
+</section>

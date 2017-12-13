@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {HttpHeaders} from "@angular/common/http";
 import {ProdottoService} from "../../provider/prodotto.service";
 import {Prodotto} from "../prodotto";
@@ -16,9 +16,13 @@ export class ProdottoComponent implements OnInit {
 
   prodotto: Prodotto;
 
+  selected: Prodotto = new Prodotto();
+
+
   user: User;
 
-  constructor(private prodottoService: ProdottoService, ) { }
+  constructor(private prodottoService: ProdottoService,) {
+  }
 
   ngOnInit() {
   }
@@ -32,43 +36,47 @@ export class ProdottoComponent implements OnInit {
     })
   }
 
-  deleteProdotto(id){
-    this.prodottoService.deleteProdotto(id).subscribe( data=> {
+  deleteProdotto(id) {
+    this.prodottoService.deleteProdotto(id).subscribe(data => {
       this.prodotto = data;
       location.reload();
     })
   }
 
-  findById(id){
-    this.prodottoService.findById(id).subscribe( data=>{
+  findById(id) {
+    this.prodottoService.findById(id).subscribe(data => {
       this.prodotto = data;
-    }, err =>{
+    }, err => {
       console.error(err);
     })
   }
 
-  findByCategoria(categoria: string){
-    this.prodottoService.findByCategoria(categoria).subscribe( data=> {
+  findByCategoria(categoria: string) {
+    this.prodottoService.findByCategoria(categoria).subscribe(data => {
       this.listaProdotti = data;
-    }, err=> {
+    }, err => {
       console.error(err);
     })
   }
 
-  addprodotto(id, cartacredito, quantita:number) {
-    this.prodottoService.addprodotto(id, cartacredito, quantita).subscribe( data =>{
+  addprodotto(id, cartacredito, quantita: number) {
+    this.prodottoService.addprodotto(id, cartacredito, quantita).subscribe(data => {
       this.user = data;
-    }, err=> {
+    }, err => {
       console.error(err);
     })
   }
 
-  findAll(){
-    this.prodottoService.findAll().subscribe(data=> {
+  findAll() {
+    this.prodottoService.findAll().subscribe(data => {
       this.listaProdotti = data;
-    }, err=> {
+    }, err => {
       console.error(err);
     })
+  }
+
+  selectedItem(p) {
+    this.selected = p;
   }
 
 }
