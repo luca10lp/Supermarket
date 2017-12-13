@@ -5,7 +5,7 @@ import {CarteDiCredito} from "./cartacredito";
 export class User {
    id: number;
 
-   username : string;
+  username : string;
 
   password: string;
 

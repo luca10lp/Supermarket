@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {BACKEND_URL} from "../app/util";
+import {Observable} from "rxjs/Observable";
+import {User} from "../app/user";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -13,12 +15,12 @@ export class LoginService {
 
   }
 
-  login (user) {
-    return this.http.post(BACKEND_URL + '/login', user, httpOptions);
+  login (user):Observable<User> {
+    return this.http.post<User>(BACKEND_URL + '/login', user, httpOptions);
   }
 
-  register(user){
-    return this.http.post(BACKEND_URL + '/register', user, httpOptions);
+  register(user):Observable<User>{
+    return this.http.post<User>(BACKEND_URL + '/register', user, httpOptions);
   }
 
   logout() {
