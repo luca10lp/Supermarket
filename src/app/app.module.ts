@@ -18,7 +18,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import {AuthGuardService} from "../provider/auth-guard.service";
 import {SharedService} from "../provider/shared.service";
 import {InterceptorService} from "../provider/interceptor.service";
-import { LogoutComponent } from './logout/logout.component';
+import {LogoutComponent} from "./logout/logout.component";
 
 
 

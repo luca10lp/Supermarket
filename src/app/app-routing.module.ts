@@ -9,8 +9,8 @@ import {RegisterComponent} from "./register/register.component";
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'user', component: UserComponent },
-  { path: '', component: ProdottoComponent},
-  { path: 'credit-card', component: CartacreditoComponent},
+  { path: 'prodotto', component: ProdottoComponent},
+  { path: 'cartacredito', component: CartacreditoComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent}
 // ad ogni componente che deve essere sotto autenticazione va aggiunto il [canactviate] authguard (tipo)
