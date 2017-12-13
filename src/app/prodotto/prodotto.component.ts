@@ -3,6 +3,9 @@ import {HttpHeaders} from "@angular/common/http";
 import {ProdottoService} from "../../provider/prodotto.service";
 import {Prodotto} from "../prodotto";
 import {User} from "../user";
+import {LoginService} from "../../provider/login.service";
+import {Router} from "@angular/router";
+import {SharedService} from "../../provider/shared.service";
 
 @Component({
   selector: 'app-prodotto',
@@ -18,10 +21,11 @@ export class ProdottoComponent implements OnInit {
 
   selected: Prodotto = new Prodotto();
 
+  logged=false;
 
   user: User;
 
-  constructor(private prodottoService: ProdottoService,) {
+  constructor(private prodottoService: ProdottoService,private loginService: LoginService, private router: Router,  private _sharedService: SharedService) {
   }
 
   ngOnInit() {
@@ -78,5 +82,15 @@ export class ProdottoComponent implements OnInit {
   selectedItem(p) {
     this.selected = p;
   }
-
+  logout() {
+    this.loginService.logout().subscribe(() => {
+      console.log('logged out.')
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      this.router.navigate(['/login']);
+      this.logged = false;
+    }, err => {
+      console.log(err)
+    })
+  }
 }
