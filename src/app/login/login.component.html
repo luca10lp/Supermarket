@@ -1,0 +1,12 @@
+<ng-container>
+  <div class="login">
+    <h1>Login</h1>
+    <form (ngSubmit)="login()">
+      <input  type="text" name="username" [(ngModel)]="user.username" placeholder="Username" required>
+      <input  type="password" name="password" [(ngModel)]="user.password" placeholder="Password" required>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Invio</button>
+      <br>
+      <button class="btn btn-primary btn-block btn-large" routerLink="/register">Registrati</button>
+    </form>
+  </div>
+</ng-container>
