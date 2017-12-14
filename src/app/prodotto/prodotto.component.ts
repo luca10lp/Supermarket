@@ -39,17 +39,15 @@ export class ProdottoComponent implements OnInit {
   }
 
   aggiungiAlCarrello() {
-     let id = +this.route.snapshot.paramMap.get('id');
-     this.prodottoService.findById(id).subscribe(prodotto => {
+    let id = +this.route.snapshot.paramMap.get('id');
+    this.prodottoService.findById(id).subscribe(prodotto => {
       this.prodotto = prodotto;
-       console.log(prodotto);
-       localStorage.setItem('prodotto', JSON.stringify(prodotto));
-       console.log(localStorage.getItem('prodotto'));
-    //   this.listaCarrello.push(this.prodotto);
-    //   console.log(this.listaCarrello);
-    // }, err => {
-    //   console.error(err);
-     });
+      console.log(prodotto);
+      this.listaCarrello.push(this.prodotto);
+      console.log(this.listaCarrello);
+    }, err => {
+      console.error(err);
+    });
   }
 
   saveOrUpdateProdotto(prodotto) {

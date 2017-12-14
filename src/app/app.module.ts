@@ -21,8 +21,6 @@ import {InterceptorService} from "../provider/interceptor.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule, MatSelectModule, MatCardModule, MatCheckboxModule} from "@angular/material";
 import {CarrelloComponent} from "./carrello/carrello.component";
-import {LocalStorageModule} from "angular-local-storage";
-
 
 
 
@@ -46,10 +44,7 @@ import {LocalStorageModule} from "angular-local-storage";
     MatButtonModule,
     MatCheckboxModule,
     MatSelectModule,
-    LocalStorageModule.withConfig({
-      prefix: 'my-app',
-      storageType: 'localStorage'
-    })
+
   ],
   providers: [
     UserService,
