@@ -2,7 +2,6 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {LoginService} from "../../provider/login.service";
 import {Router} from "@angular/router";
 import {SharedService} from "../../provider/shared.service";
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   private user= {username:'', password:''};
 
-  constructor( private loginService: LoginService, private router: Router,  private _sharedService: SharedService ) { }
+  constructor( private loginService: LoginService, private router: Router,  private _sharedService: SharedService) { }
 
   ngOnInit() {
   }
@@ -29,5 +28,6 @@ export class LoginComponent implements OnInit {
       console.error(err);
     })
   }
+
 
 }
