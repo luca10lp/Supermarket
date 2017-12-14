@@ -18,6 +18,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import {AuthGuardService} from "../provider/auth-guard.service";
 import {SharedService} from "../provider/shared.service";
 import {InterceptorService} from "../provider/interceptor.service";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatButtonModule, MatCardModule, MatCheckboxModule} from "@angular/material";
 
 
 
@@ -36,6 +38,10 @@ import {InterceptorService} from "../provider/interceptor.service";
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatCheckboxModule,
   ],
   providers: [
     UserService,

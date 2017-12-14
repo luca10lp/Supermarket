@@ -1,0 +1,12 @@
+.example-card {
+  width: 400px;
+}
+
+.example-header-image {
+}
+
+.mat-card-header {
+  background-size: cover;
+  float: left;
+  border-bottom-color: darkorange;
+}

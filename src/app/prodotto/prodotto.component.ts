@@ -21,6 +21,8 @@ export class ProdottoComponent implements OnInit {
 
   selected: Prodotto = new Prodotto();
 
+  listaCarrello: Array<Prodotto>;
+
   logged=false;
 
   user: User;
@@ -29,6 +31,7 @@ export class ProdottoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.findAll();
   }
 
   saveOrUpdateProdotto(prodotto) {
