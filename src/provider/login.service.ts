@@ -24,7 +24,7 @@ export class LoginService {
   }
 
   logout() {
-    return this.http.options(BACKEND_URL + '/logout', {responseType: 'text'});
+    return this.http.get(BACKEND_URL + '/logout', {responseType: 'text'});
   }
 
 }
