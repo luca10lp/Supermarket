@@ -5,6 +5,7 @@ import {CartacreditoComponent} from "./cartacredito/cartacredito.component";
 import {ProdottoComponent} from "./prodotto/prodotto.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
+import {CarrelloComponent} from "./carrello/carrello.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -12,7 +13,9 @@ const routes: Routes = [
   { path: 'prodotto', component: ProdottoComponent},
   { path: 'cartacredito', component: CartacreditoComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent}
+  { path: 'register', component: RegisterComponent},
+  { path: 'carrello', component: CarrelloComponent}
+
 // ad ogni componente che deve essere sotto autenticazione va aggiunto il [canactviate] authguard (tipo)
 ];
 
