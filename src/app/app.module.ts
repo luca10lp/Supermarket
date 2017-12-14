@@ -20,6 +20,7 @@ import {SharedService} from "../provider/shared.service";
 import {InterceptorService} from "../provider/interceptor.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule, MatSelectModule, MatCardModule, MatCheckboxModule} from "@angular/material";
+import { CarelloComponent } from './carello/carello.component';
 
 
 
@@ -31,6 +32,7 @@ import {MatButtonModule, MatSelectModule, MatCardModule, MatCheckboxModule} from
     ProdottoComponent,
     CartacreditoComponent,
     UserComponent,
+    CarelloComponent,
   ],
   imports: [
     BrowserModule,

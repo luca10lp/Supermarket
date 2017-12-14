@@ -34,6 +34,11 @@ export class ProdottoComponent implements OnInit {
     this.findAll();
   }
 
+  aggiungiAlCarrello(){
+    this.listaCarrello.push(this.prodotto);
+    console.log(this.listaCarrello);
+  }
+
   saveOrUpdateProdotto(prodotto) {
     this.prodottoService.saveOrUpdateProdotto(prodotto).subscribe(data => {
       console.log(data);
