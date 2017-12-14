@@ -10,3 +10,76 @@
   float: left;
   border-bottom-color: darkorange;
 }
+
+.example-container {
+  width: 100%;
+  height: 1300px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.card{
+  lenght:75%;
+  height: 60px;
+}
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+.example-scrolling-content {
+  overflow: auto;
+  height: 50%;
+}
+.example-fab.mat-mini-fab {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+.example-sidenav-fab-container {
+  width: 500px;
+  height: 300px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-fab-container mat-sidenav {
+  max-width: 200px;
+}
+
+.example-sidenav-fab-container .mat-sidenav-content,
+.example-sidenav-fab-container mat-sidenav {
+  display: flex;
+  overflow: visible;
+}
+
+.example-card {
+  width: 90%;
+}
+
+#content img {
+  float: left;
+}
+
+.center  {
+}
+
+.carta{
+  height:150px;
+}
+.left{
+  float:left;
+}
+
+.marigne{
+
+  margin-bottom: 20px;
+  margin-left: 20px;
+
+}
+
+#mat-card{
+  width:700px;
+}
