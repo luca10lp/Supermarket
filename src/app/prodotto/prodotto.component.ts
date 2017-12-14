@@ -4,8 +4,10 @@ import {ProdottoService} from "../../provider/prodotto.service";
 import {Prodotto} from "../prodotto";
 import {User} from "../user";
 import {LoginService} from "../../provider/login.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {SharedService} from "../../provider/shared.service";
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-prodotto',
@@ -21,22 +23,33 @@ export class ProdottoComponent implements OnInit {
 
   selected: Prodotto = new Prodotto();
 
-  listaCarrello: Array<Prodotto>;
+  listaCarrello: Array<Prodotto> = new Array();
 
   logged=false;
 
   user: User;
 
-  constructor(private prodottoService: ProdottoService,private loginService: LoginService, private router: Router,  private _sharedService: SharedService) {
+  constructor(private prodottoService: ProdottoService,private loginService: LoginService,
+              private router: Router,  private _sharedService: SharedService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.findAll();
   }
 
-  aggiungiAlCarrello(){
-    this.listaCarrello.push(this.prodotto);
-    console.log(this.listaCarrello);
+  aggiungiAlCarrello() {
+     let id = +this.route.snapshot.paramMap.get('id');
+     this.prodottoService.findById(id).subscribe(prodotto => {
+      this.prodotto = prodotto;
+       console.log(prodotto);
+       localStorage.setItem('prodotto', JSON.stringify(prodotto));
+       console.log(localStorage.getItem('prodotto'));
+    //   this.listaCarrello.push(this.prodotto);
+    //   console.log(this.listaCarrello);
+    // }, err => {
+    //   console.error(err);
+     });
   }
 
   saveOrUpdateProdotto(prodotto) {

@@ -17,7 +17,6 @@ export class CarrelloComponent implements OnInit {
   constructor(private prodottoService: ProdottoService,  private router: Router,  private _sharedService: SharedService) { }
 
   ngOnInit() {
-    this.prodCompo.listaCarrello;
   }
 
 }
