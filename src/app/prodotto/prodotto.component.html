@@ -1,5 +1,6 @@
 <div>
-  <li *ngFor=" let prodotto of listaProdotti" routerLink="/findAll/{{prodotto.id}}">
+  <button mat-button (click)="logout()" >LogOut</button>
+  <li *ngFor=" let prodotto of listaProdotti">
     <mat-card class="example-card">
       <mat-card-header>
         <img src={{prodotto.img}}>
@@ -11,12 +12,24 @@
           Data Di Scadenza: {{prodotto.dataDiScadenza}}<br>
           Categoria: {{prodotto.categoria}}<br>
           Quantità Disponibile: {{prodotto.quantitaDisponibile}}<br>
-          Quantità Da Acquistare: {{prodotto.quantitaDaAcquistare}}<br>
           PrezzoUnitario: {{prodotto.prezzoUnitario}}<br>
           Unita: {{prodotto.unita}}<br>
           Prezzo Senza Iva: {{prodotto.prezzoSenzaIva}}<br>
           Prezzo Con Iva : {{prodotto.prezzoIvato}}<br>
+          Quantità Da Acquistare:  <mat-select [(value)]="prodotto.quantitaDaAcquistare">
+          <mat-option>None</mat-option>
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="4">4</mat-option>
+          <mat-option value="5">5</mat-option>
+          <mat-option value="6">6</mat-option>
+          <mat-option value="7">7</mat-option>
+          <mat-option value="8">8</mat-option>
+          <mat-option value="9">9</mat-option>
+          <mat-option value="10">10</mat-option>
 
+        </mat-select>
         </p>
       </mat-card-content>
       <mat-card-actions>

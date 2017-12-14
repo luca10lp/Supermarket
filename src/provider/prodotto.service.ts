@@ -43,8 +43,8 @@ export class ProdottoService {
     return this.http.get<Array<Prodotto>>(BACKEND_URL_PRODOTTO + '/findByCategoria' + categoria);
   }
 
-  addprodotto(id, cartacredito, quantita:number): Observable<User>{
-    return this.http.post<User>(BACKEND_URL_PRODOTTO + '/addprodotto' + [id, cartacredito, quantita], httpOptions);
+  addprodotto(id, quantitaDaAcquistare:number): Observable<User>{
+    return this.http.post<User>(BACKEND_URL_PRODOTTO + '/addprodotto' + [id, quantitaDaAcquistare], httpOptions);
   }
 
 }

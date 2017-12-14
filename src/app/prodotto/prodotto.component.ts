@@ -66,13 +66,16 @@ export class ProdottoComponent implements OnInit {
     })
   }
 
-  addprodotto(id, cartacredito, quantita: number) {
-    this.prodottoService.addprodotto(id, cartacredito, quantita).subscribe(data => {
-      this.user = data;
-    }, err => {
-      console.error(err);
-    })
-  }
+  addprodotto(id, quantitaDaAcquistare: number) {
+      this.prodottoService.addprodotto(id, quantitaDaAcquistare).subscribe(data => {
+        console.log(data);
+        console.log(this.user);
+        this.user = data;
+        console.log(this.user);
+      }, err => {
+        console.error(err);
+      })
+    }
 
   findAll() {
     this.prodottoService.findAll().subscribe(data => {

@@ -19,8 +19,7 @@ import {AuthGuardService} from "../provider/auth-guard.service";
 import {SharedService} from "../provider/shared.service";
 import {InterceptorService} from "../provider/interceptor.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatButtonModule, MatCardModule, MatCheckboxModule} from "@angular/material";
-
+import {MatButtonModule, MatSelectModule, MatCardModule, MatCheckboxModule} from "@angular/material";
 
 
 
@@ -42,6 +41,7 @@ import {MatButtonModule, MatCardModule, MatCheckboxModule} from "@angular/materi
     MatCardModule,
     MatButtonModule,
     MatCheckboxModule,
+    MatSelectModule,
   ],
   providers: [
     UserService,
