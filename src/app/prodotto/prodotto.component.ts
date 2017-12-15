@@ -56,12 +56,7 @@ export class ProdottoComponent implements OnInit {
     })
   }
 
-  deleteProdotto(id) {
-    this.prodottoService.deleteProdotto(id).subscribe(data => {
-      this.prodotto = data;
-      location.reload();
-    })
-  }
+
 
   findById(id) {
     this.prodottoService.findById(id).subscribe(data => {

@@ -37,10 +37,10 @@ export class CarrelloComponent implements OnInit {
 
   }
 
-  deleteProdotto(id) {
-    this.prodottoService.deleteProdotto(id).subscribe(data => {
-      this.prodotto = data;
-      location.reload();
-    })
-  }
+  deleteProdotto() {
+    this.listaProdottiCarrello= JSON.parse(localStorage.getItem('listaProdottiCarrello'))
+    localStorage.removeItem('listaProdottiCarrello')
+    console.log("listaProdottiCarrello" + this.listaProdottiCarrello)
+
+    }
 }
