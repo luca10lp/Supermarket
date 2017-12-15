@@ -15,13 +15,17 @@ export class ProdottoService {
 
   prodotto: Prodotto;
 
-  listaProdotti: Prodotto[];
+  listaProdottiAcquistati: Prodotto[];
 
   id: number;
 
   cartacredito: CarteDiCredito;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+
+    let prodottiAcquistati= this.getListaProdottiAcquistati();
+
+  }
 
   saveOrUpdateProdotto(prodotto): Observable<Prodotto>{
     return this.http.post<Prodotto>(BACKEND_URL_PRODOTTO + '/saveOrUpdateProdotto' , prodotto, httpOptions);
@@ -51,4 +55,8 @@ export class ProdottoService {
     return this.http.post<User>(BACKEND_URL_PRODOTTO + '/addprodotto/' + [id, quantitaDaAcquistare], httpOptions);
   }
 
+  getListaProdottiAcquistati():Observable<Array<Prodotto>>{
+    let localStorageItem= JSON.parse(localStorage.getItem('prodottiAcquistati'))
+    return localStorageItem
+  }
 }

@@ -17,13 +17,13 @@ import { Location } from '@angular/common';
 })
 export class ProdottoComponent implements OnInit {
 
-  listaProdotti: Array<Prodotto>;
+  listaProdotti: Array<Prodotto>=new Array
 
   prodotto: Prodotto;
 
   selected: Prodotto = new Prodotto();
 
-  listaProdottiCarrello: Array<Prodotto> = new Array();
+  listaProdottiCarrello: Array<Prodotto> = new Array;
 
   logged=false;
 
@@ -38,15 +38,13 @@ export class ProdottoComponent implements OnInit {
     this.findAll();
   }
 
-  aggiungiAlCarrello(prodotto) {
-    this.prodottoService.findById(prodotto.id).subscribe(data => {
-      this.prodotto = data;
-      console.log(prodotto.id);
-      this.listaProdottiCarrello.push(this.prodotto);
+  aggiungiAlCarrello(prod:Prodotto) {
+    this.listaProdottiCarrello=<Array<Prodotto>>JSON.parse(localStorage.getItem("listaProdottiCarrello")  )
+    console.log(this.listaProdottiCarrello)
+    this.listaProdottiCarrello.push(prod)
+    localStorage.setItem('listaProdottiCarrello',JSON.stringify(this.listaProdottiCarrello));
       console.log(this.listaProdottiCarrello);
-    }, err => {
-      console.error(err);
-    });
+
   }
 
   saveOrUpdateProdotto(prodotto) {

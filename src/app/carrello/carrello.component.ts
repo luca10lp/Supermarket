@@ -12,7 +12,7 @@ import {Prodotto} from "../prodotto";
 })
 export class CarrelloComponent implements OnInit {
 
-  listaProdottiCarrello: Array<Prodotto>
+  listaProdottiCarrello: Array<Prodotto>=new Array();
 
   prodotto:Prodotto
 
@@ -21,21 +21,20 @@ export class CarrelloComponent implements OnInit {
 
   constructor(private prodottoService: ProdottoService,  private router: Router,  private _sharedService: SharedService) {
 
-    this.findAll();
-
+  this.findCarrello()
   }
 
 
   ngOnInit() {
   }
 
-  findAll() {
-    this.prodottoService.findAllCarrello().subscribe(data => {
-      this.listaProdottiCarrello = data;
+  findCarrello() {
+      if(JSON.parse(localStorage.getItem("listaProdottiCarrello"))==null){
+        localStorage.setItem("listaProdottiCarrello", JSON.stringify(this.listaProdottiCarrello))
+      }
+      this.listaProdottiCarrello= JSON.parse(localStorage.getItem('listaProdottiCarrello'))
       console.log("listaProdottiCarrello" + this.listaProdottiCarrello)
-    }, err => {
-      console.error(err);
-    })
+
   }
 
   deleteProdotto(id) {
