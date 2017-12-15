@@ -17,7 +17,7 @@ import { Location } from '@angular/common';
 })
 export class ProdottoComponent implements OnInit {
 
-  listaProdotti: Array<Prodotto>=new Array
+  listaProdotti: Array<Prodotto>=new Array();
 
   prodotto: Prodotto;
 
@@ -29,13 +29,12 @@ export class ProdottoComponent implements OnInit {
 
   user: User;
 
-  constructor(private prodottoService: ProdottoService,private loginService: LoginService,
-              private router: Router,  private _sharedService: SharedService,
-              private route: ActivatedRoute) {
+  constructor(private prodottoService: ProdottoService) {
+    this.findAll();
   }
 
   ngOnInit() {
-    this.findAll();
+
   }
 
   aggiungiAlCarrello(prod:Prodotto) {
@@ -88,6 +87,7 @@ export class ProdottoComponent implements OnInit {
   findAll() {
     this.prodottoService.findAll().subscribe(data => {
       this.listaProdotti = data;
+
     }, err => {
       console.error(err);
     })

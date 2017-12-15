@@ -15,9 +15,7 @@
       <a class="navbar-brand">Compra</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a routerLink="/login">Login</a></li>
-      <li><a routerLink="/prodotto">Home</a></li>
-      <li><a routerLink="/cartacredito">Le tue carte</a></li>
+      <li *ngIf="logged==true"><a routerLink="/prodotto">Home</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li *ngIf="logged==true"><a (click)="logout()"><span class="glyphicon glyphicon-log-out" ></span> Logout</a></li>
