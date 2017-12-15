@@ -19,7 +19,7 @@ import {AuthGuardService} from "../provider/auth-guard.service";
 import {SharedService} from "../provider/shared.service";
 import {InterceptorService} from "../provider/interceptor.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatButtonModule, MatSelectModule, MatCardModule, MatCheckboxModule} from "@angular/material";
+import {MatButtonModule, MatSelectModule, MatCardModule, MatCheckboxModule, MatGridListModule} from "@angular/material";
 import {CarrelloComponent} from "./carrello/carrello.component";
 
 
@@ -44,6 +44,7 @@ import {CarrelloComponent} from "./carrello/carrello.component";
     MatButtonModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatGridListModule,
 
   ],
   providers: [

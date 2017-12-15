@@ -1,12 +1,11 @@
-<div class="list-items">
-  <li *ngFor=" let p of listaProdotti"(click)="selectedItem(p)">
+<mat-grid-list cols="3" rowHeight="500px">
+  <mat-grid-tile *ngFor=" let p of listaProdotti"(click)="selectedItem(p)">
     <br>
     <div class="container">
       <div class="row">
         <div class="block span3">
           <div class="product">
             <img src="{{p.img}}">
-
           </div>
 
           <div class="info">
@@ -19,8 +18,8 @@
         </div>
       </div>
     </div>
-  </li>
-</div>
+  </mat-grid-tile>
+</mat-grid-list>
 
 
 
