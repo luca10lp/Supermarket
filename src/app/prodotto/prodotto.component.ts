@@ -97,6 +97,9 @@ export class ProdottoComponent implements OnInit {
     this.selected = p;
   }
 
+  refresh(){
+    location.reload()
+  }
 
 
 }
