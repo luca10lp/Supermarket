@@ -1,24 +1,20 @@
-<div>
-  <li *ngFor=" let prodotto of listaProdotti">
+<div class="list-items">
+  <li *ngFor=" let p of listaProdotti"(click)="selectedItem(p)">
     <br>
     <div class="container">
       <div class="row">
         <div class="block span3">
           <div class="product">
-            <img src="{{prodotto.img}}">
+            <img src="{{p.img}}">
 
-            <div class="buttons">
-              <a class="buy btn btn-large btn-info" href="#"><i class="icon-shopping-cart"></i> Add to Cart</a>
-              <a class="preview btn btn-large btn-info" href="#"><i class="icon-eye-open"></i> View item</a>
-            </div>
           </div>
 
           <div class="info">
-            <h4>{{prodotto.marca}}</h4>
-            <span class="description">{{prodotto.nome}}
+            <h4>{{p.marca}}</h4>
+            <span class="description">{{p.nome}}
         </span>
-            <span class="price">{{prodotto.prezzoIvato}}</span>
-            <a class="btn btn-info pull-right" (click)="aggiungiAlCarrello()" ><i class="icon-shopping-cart"></i> Buy Now</a>
+            <span class="price">{{p.prezzoIvato}}</span>
+            <a class="btn btn-info pull-right" (click)="aggiungiAlCarrello(p)" ><i class="icon-shopping-cart"></i> Buy Now</a>
           </div>
         </div>
       </div>

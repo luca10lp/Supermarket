@@ -1,23 +1,52 @@
+<body>
+<div id="w">
+  <header id="title">
+    <h1>Basket</h1>
+  </header>
+  <div id="page">
+    <table id="cart">
+      <thead>
+      <tr>
+        <th class="first">Photo</th>
+        <th class="second">Qty</th>
+        <th class="third">Product</th>
+        <th class="fourth">Line Total</th>
+        <th class="fifth">&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- shopping cart contents -->
+      <tr  *ngFor=" let prodotto of listaProdottiCarrello">
+        <!-- http://www.inkydeals.com/deal/ginormous-bundle/ -->
+        <td><img src="{{prodotto.img}}"class="thumb"></td>
+        <td><input type="number" value="1" min="0" max="99" class="qtyinput"></td>
+        <td>{{prodotto.marca}}</td>
+        <td>${{prodotto.prezzoIvato}}</td>
+        <td><span class="remove"><img src="https://i.imgur.com/h1ldGRr.png" alt="X"(click)="deleteProdotto(id)"></span></td>
+      </tr>
 
-<div>
-  <li *ngFor=" let prodotto of listaCarrello">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <img src={{prodotto.img}}>
-      </mat-card-header>
-      <mat-card-title>{{prodotto.marca}}</mat-card-title>
-      <mat-card-subtitle>{{prodotto.nome}}</mat-card-subtitle>
-      <mat-card-content>
-        <p>
-          Data Di Scadenza: {{prodotto.dataDiScadenza}}<br>
-          Categoria: {{prodotto.categoria}}<br>
-          Prezzo Con Iva : {{prodotto.prezzoIvato}}<br>
-          Quantità Da Acquistare: {{prodotto.quantitaDaAcquistare}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button (click)="addprodotto()" >Effettua l'acquisto</button>
-      </mat-card-actions>
-    </mat-card>
-  </li>
+
+      <!-- tax + subtotal -->
+      <tr class="extracosts">
+        <td class="light">Shipping &amp; Tax</td>
+        <td colspan="2" class="light"></td>
+        <td>$35.00</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr class="totalprice">
+        <td class="light">Total:</td>
+        <td colspan="2">&nbsp;</td>
+        <td colspan="2"><span class="thick">$225.45</span></td>
+      </tr>
+
+      <!-- checkout btn -->
+      <tr class="checkoutrow">
+        <td colspan="5" class="checkout"><button id="submitbtn">Checkout Now!</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+</body>
+
+

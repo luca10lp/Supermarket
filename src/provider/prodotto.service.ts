@@ -28,23 +28,27 @@ export class ProdottoService {
   }
 
   deleteProdotto(id): Observable<Prodotto>{
-    return this.http.delete<Prodotto>(BACKEND_URL_PRODOTTO + '/deleteProdotto' + id);
+    return this.http.delete<Prodotto>(BACKEND_URL_PRODOTTO + '/deleteProdotto/' + id);
   }
 
   findAll(): Observable<Array<Prodotto>>{
     return this.http.get<Array<Prodotto>>(BACKEND_URL_PRODOTTO + '/findAll')
   }
 
+  findAllCarrello(): Observable<Array<Prodotto>>{
+    return this.http.get<Array<Prodotto>>(BACKEND_URL_PRODOTTO + '/findAll')
+  }
+
   findById(id): Observable<Prodotto>{
-    return this.http.get<Prodotto>(BACKEND_URL_PRODOTTO + '/findById' + id);
+    return this.http.get<Prodotto>(BACKEND_URL_PRODOTTO + '/findById/' + id);
   }
 
   findByCategoria(categoria: string): Observable<Array<Prodotto>> {
-    return this.http.get<Array<Prodotto>>(BACKEND_URL_PRODOTTO + '/findByCategoria' + categoria);
+    return this.http.get<Array<Prodotto>>(BACKEND_URL_PRODOTTO + '/findByCategoria/' + categoria);
   }
 
   addprodotto(id, quantitaDaAcquistare:number): Observable<User>{
-    return this.http.post<User>(BACKEND_URL_PRODOTTO + '/addprodotto' + [id, quantitaDaAcquistare], httpOptions);
+    return this.http.post<User>(BACKEND_URL_PRODOTTO + '/addprodotto/' + [id, quantitaDaAcquistare], httpOptions);
   }
 
 }

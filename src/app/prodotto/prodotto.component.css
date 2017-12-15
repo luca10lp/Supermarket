@@ -169,3 +169,11 @@ a.preview {
   content: "\f005";
   color: #e3cf7a;
 }
+.list-items {
+  display: flex;
+
+  justify-content: center;
+
+  flex-flow: row wrap;
+  align-content: flex-end;
+}

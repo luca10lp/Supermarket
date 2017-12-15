@@ -23,7 +23,7 @@ export class ProdottoComponent implements OnInit {
 
   selected: Prodotto = new Prodotto();
 
-  listaCarrello: Array<Prodotto> = new Array();
+  listaProdottiCarrello: Array<Prodotto> = new Array();
 
   logged=false;
 
@@ -38,13 +38,12 @@ export class ProdottoComponent implements OnInit {
     this.findAll();
   }
 
-  aggiungiAlCarrello() {
-    let id = +this.route.snapshot.paramMap.get('id');
-    this.prodottoService.findById(id).subscribe(prodotto => {
-      this.prodotto = prodotto;
-      console.log(prodotto);
-      this.listaCarrello.push(this.prodotto);
-      console.log(this.listaCarrello);
+  aggiungiAlCarrello(prodotto) {
+    this.prodottoService.findById(prodotto.id).subscribe(data => {
+      this.prodotto = data;
+      console.log(prodotto.id);
+      this.listaProdottiCarrello.push(this.prodotto);
+      console.log(this.listaProdottiCarrello);
     }, err => {
       console.error(err);
     });
@@ -104,15 +103,7 @@ export class ProdottoComponent implements OnInit {
   selectedItem(p) {
     this.selected = p;
   }
-  logout() {
-    this.loginService.logout().subscribe(() => {
-      console.log('logged out.')
-      localStorage.removeItem('user');
-      localStorage.removeItem('token');
-      this.router.navigate(['/login']);
-      this.logged = false;
-    }, err => {
-      console.log(err)
-    })
-  }
+
+
+
 }
