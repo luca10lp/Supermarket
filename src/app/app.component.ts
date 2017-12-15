@@ -38,5 +38,20 @@ export class AppComponent {
     });
   }
 
+  logout() {
+    this.loginService.logout().subscribe(data => {
+      console.log('Logout user: ' + data);
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      this.logged = false;
+      this.router.navigate(['login']);
+    }, err => {
+      console.error(err);
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      this.logged = false;
+      this.router.navigate(['login']);
+    });
+  }
 
 }
