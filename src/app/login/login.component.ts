@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', btoa(this.user.username + ':' + this.user.password));
       this._sharedService.emitChange('logged=true');
       this.router.navigate(['prodotto'], {replaceUrl: true});
+      location.reload()
     }, err => {
       console.error(err);
     })
