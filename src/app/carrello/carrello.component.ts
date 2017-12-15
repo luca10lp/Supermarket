@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {ProdottoComponent} from "../prodotto/prodotto.component";
+import {Component, OnInit} from '@angular/core';
 import {ProdottoService} from "../../provider/prodotto.service";
 import {Router} from "@angular/router";
 import {SharedService} from "../../provider/shared.service";
@@ -12,16 +11,13 @@ import {Prodotto} from "../prodotto";
 })
 export class CarrelloComponent implements OnInit {
 
-  listaProdottiCarrello: Array<Prodotto>=new Array();
+  listaProdottiCarrello: Array<Prodotto> = new Array();
 
-  prodotto:Prodotto
+  prodotto: Prodotto
 
+  constructor(private prodottoService: ProdottoService, private router: Router, private _sharedService: SharedService) {
 
-  prodCompo: ProdottoComponent;
-
-  constructor(private prodottoService: ProdottoService,  private router: Router,  private _sharedService: SharedService) {
-
-  this.findCarrello()
+    this.findCarrello()
   }
 
 
@@ -29,18 +25,25 @@ export class CarrelloComponent implements OnInit {
   }
 
   findCarrello() {
-      if(JSON.parse(localStorage.getItem("listaProdottiCarrello"))==null){
-        localStorage.setItem("listaProdottiCarrello", JSON.stringify(this.listaProdottiCarrello))
-      }
-      this.listaProdottiCarrello= JSON.parse(localStorage.getItem('listaProdottiCarrello'))
-      console.log("listaProdottiCarrello" + this.listaProdottiCarrello)
+    if (JSON.parse(localStorage.getItem("listaProdottiCarrello")) == null) {
+      localStorage.setItem("listaProdottiCarrello", JSON.stringify(this.listaProdottiCarrello))
+    }
+    this.listaProdottiCarrello = JSON.parse(localStorage.getItem('listaProdottiCarrello'))
+    console.log("listaProdottiCarrello" + this.listaProdottiCarrello)
 
   }
 
-  deleteProdotto() {
-    this.listaProdottiCarrello= JSON.parse(localStorage.getItem('listaProdottiCarrello'))
-    localStorage.removeItem('listaProdottiCarrello')
-    console.log("listaProdottiCarrello" + this.listaProdottiCarrello)
+  deleteProdotto(prodotto) {
 
-    }
+    this.listaProdottiCarrello.splice(this.listaProdottiCarrello.indexOf(prodotto), 1)
+    localStorage.setItem("listaProdottiCarrello", JSON.stringify(this.listaProdottiCarrello))
+
+  }
+
+  clearBasket(prodotto){
+
+  
+
+      }
+
 }
