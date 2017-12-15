@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('user',JSON.stringify(data));
       localStorage.setItem('token', btoa(this.user.username + ':' + this.user.password));
       this._sharedService.emitChange('logged=true');
-      this.router.navigate(['/prodotto'], {replaceUrl: true});
+      this.router.navigate(['prodotto'], {replaceUrl: true});
     }, err => {
       console.error(err);
     })
