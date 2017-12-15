@@ -32,7 +32,8 @@ import {CarrelloComponent} from "./carrello/carrello.component";
     ProdottoComponent,
     CartacreditoComponent,
     UserComponent,
-    CarrelloComponent,
+    CarrelloComponent
+
   ],
   imports: [
     BrowserModule,

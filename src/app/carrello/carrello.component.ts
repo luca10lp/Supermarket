@@ -42,7 +42,7 @@ export class CarrelloComponent implements OnInit {
 
   clearBasket(prodotto){
 
-  
+
 
       }
 
