@@ -12,21 +12,20 @@ import {User} from "../user";
 })
 export class CartacreditoComponent implements OnInit {
 
-  listaCarte: Array<CarteDiCredito>;
+  listaCarte: Array<CarteDiCredito> = new Array();
 
-  carta: CarteDiCredito;
+  cartacredito: CarteDiCredito;
 
   user: User;
+
 
   constructor(private cartaService: CartacreditoService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-
   }
 
   save(cartacredito) {
-    cartacredito = +this.route.snapshot.paramMap.get('cartacredito');
     if (cartacredito !== null) {
       this.cartaService.save(cartacredito).subscribe(data => {
         console.log(data);
@@ -57,7 +56,7 @@ export class CartacreditoComponent implements OnInit {
     id = +this.route.snapshot.paramMap.get('cartacredito');
     if (id !== 0) {
       this.cartaService.findById(id).subscribe(data => {
-        this.carta = data;
+        this.cartacredito = data;
       }, err => {
         console.error(err);
       })

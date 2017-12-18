@@ -5,15 +5,15 @@
       <div class="row">
         <div class="block span3">
           <div class="product">
-            <img src="{{p.img}}">
-          </div>
+          <img src="{{p.img}}">
+        </div>
 
           <div class="info">
             <h4>{{p.marca}}</h4>
             <span class="description">{{p.nome}}
         </span>
             <span class="price">{{p.prezzoIvato}}</span>
-            <a class="btn btn-info pull-right" (click)="aggiungiAlCarrello(p)" ><i class="icon-shopping-cart"></i> Buy Now</a>
+            <a class="btn btn-info pull-right" (click)="aggiungiAlCarrello(p)" (click)="openSnackBar()"><i class="icon-shopping-cart"></i> Buy Now</a>
           </div>
         </div>
       </div>

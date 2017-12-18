@@ -7,6 +7,7 @@ import {LoginService} from "../../provider/login.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {SharedService} from "../../provider/shared.service";
 import { Location } from '@angular/common';
+import {MatSnackBar} from "@angular/material";
 
 
 @Component({
@@ -29,7 +30,7 @@ export class ProdottoComponent implements OnInit {
 
   user: User;
 
-  constructor(private prodottoService: ProdottoService) {
+  constructor(private prodottoService: ProdottoService, public snackBar: MatSnackBar) {
     this.findAll();
   }
 
@@ -63,6 +64,12 @@ export class ProdottoComponent implements OnInit {
     }, err => {
       console.error(err);
     })
+  }
+
+  openSnackBar(action: string) {
+    this.snackBar.open("Prodotto", "aggiunto", {
+      duration: 2500,
+  });
   }
 
   findByCategoria(categoria: string) {
