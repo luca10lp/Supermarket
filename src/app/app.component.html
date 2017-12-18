@@ -20,6 +20,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li *ngIf="logged==true"><a (click)="logout()"><span class="glyphicon glyphicon-log-out" ></span> Logout</a></li>
       <li *ngIf="logged==true"><a routerLink="carrello"><span class="glyphicon glyphicon-shopping-cart"></span> Carrello</a></li>
+      <li *ngIf="logged==true"><a routerLink="cartacredito"><span class="glyphicon glyphicon-shopping-cart"></span>Le tue carte</a></li>
       <li *ngIf="logged==false"><a routerLink="register"><span class="glyphicon glyphicon-pencil" ></span> Register</a></li>
       <li *ngIf="logged==false"><a routerLink="login"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
     </ul>
