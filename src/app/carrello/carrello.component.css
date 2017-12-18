@@ -48,7 +48,12 @@ strong, b { font-weight: bold; }
 em, i { font-style: italic; }
 
 table { border-collapse: collapse; border-spacing: 0; }
-img { border: 0; max-width: 100%; }
+img { border: 0; max-width: 100px; max-height: 100px }
+
+.cestino{
+  max-height: 20px;
+  max-width: 20px;
+}
 
 h1 {
   font-family: 'Fredoka One', Helvetica, Tahoma, sans-serif;
@@ -231,3 +236,45 @@ td.checkout {
   -moz-box-shadow: inset 0 1px 3px 1px rgba(0,0,0,0.25);
   box-shadow: inset 0 1px 3px 1px rgba(0,0,0,0.25);
 }
+
+#clearbtn:active {
+  border-bottom: 0;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #338eff), color-stop(100%, #4d9cff));
+  background-image: -webkit-linear-gradient(#338eff, #4d9cff);
+  background-image: -moz-linear-gradient(#338eff, #4d9cff);
+  background-image: -o-linear-gradient(#338eff, #4d9cff);
+  background-image: linear-gradient(#338eff, #4d9cff);
+  -webkit-box-shadow: inset 0 1px 3px 1px rgba(0,0,0,0.25);
+  -moz-box-shadow: inset 0 1px 3px 1px rgba(0,0,0,0.25);
+  box-shadow: inset 0 1px 3px 1px rgba(0,0,0,0.25);
+}
+
+#clearbtn {
+  width: 150px;
+  height: 35px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  margin: 0 0 10px 0;
+  font-size: 1.3em;
+  letter-spacing: 0.05em;
+  font-family: Arial, Tahoma, sans-serif;
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+  overflow: hidden;
+  border-bottom: 1px solid #0071ff;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #66aaff), color-stop(100%, #4d9cff));
+  background-image: -webkit-linear-gradient(#66aaff, #4d9cff);
+  background-image: -moz-linear-gradient(#66aaff, #4d9cff);
+  background-image: -o-linear-gradient(#66aaff, #4d9cff);
+  background-image: linear-gradient(#66aaff, #4d9cff);
+}
+
+#clearbtn:hover {
+   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4d9cff), color-stop(100%, #338eff));
+   background-image: -webkit-linear-gradient(#4d9cff, #338eff);
+   background-image: -moz-linear-gradient(#4d9cff, #338eff);
+   background-image: -o-linear-gradient(#4d9cff, #338eff);
+   background-image: linear-gradient(#4d9cff, #338eff);
+ }

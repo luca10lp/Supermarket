@@ -60,7 +60,8 @@ export class CarrelloComponent implements OnInit {
   }
 
 
-  clearBasket(prodotto) {
+  clearBasket() {
+    this.listaProdottiCarrello = JSON.parse(localStorage.getItem('listaProdottiCarrello'))
   }
 
   compra() {
