@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Prodotto} from "../app/prodotto";
 import {CarteDiCredito} from "../app/cartacredito";
 import {User} from "../app/user";
 import {Observable} from "rxjs/Observable";
-import {BACKEND_URL, BACKEND_URL_PRODOTTO} from "../app/util";
+import {BACKEND_URL_PRODOTTO} from "../app/util";
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type' : 'application/json'})
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 @Injectable()
@@ -23,27 +23,27 @@ export class ProdottoService {
 
   constructor(private http: HttpClient) {
 
-    let prodottiAcquistati= this.getListaProdottiAcquistati();
+    let prodottiAcquistati = this.getListaProdottiAcquistati();
 
   }
 
-  saveOrUpdateProdotto(prodotto): Observable<Prodotto>{
-    return this.http.post<Prodotto>(BACKEND_URL_PRODOTTO + '/saveOrUpdateProdotto' , prodotto, httpOptions);
+  saveOrUpdateProdotto(prodotto): Observable<Prodotto> {
+    return this.http.post<Prodotto>(BACKEND_URL_PRODOTTO + '/saveOrUpdateProdotto', prodotto, httpOptions);
   }
 
-  deleteProdotto(id): Observable<Prodotto>{
+  deleteProdotto(id): Observable<Prodotto> {
     return this.http.delete<Prodotto>(BACKEND_URL_PRODOTTO + '/deleteProdotto/' + id);
   }
 
-  findAll(): Observable<Array<Prodotto>>{
+  findAll(): Observable<Array<Prodotto>> {
     return this.http.get<Array<Prodotto>>(BACKEND_URL_PRODOTTO + '/findAll')
   }
 
-  findAllCarrello(): Observable<Array<Prodotto>>{
+  findAllCarrello(): Observable<Array<Prodotto>> {
     return this.http.get<Array<Prodotto>>(BACKEND_URL_PRODOTTO + '/findAll')
   }
 
-  findById(id): Observable<Prodotto>{
+  findById(id): Observable<Prodotto> {
     return this.http.get<Prodotto>(BACKEND_URL_PRODOTTO + '/findById/' + id);
   }
 
@@ -51,12 +51,12 @@ export class ProdottoService {
     return this.http.get<Array<Prodotto>>(BACKEND_URL_PRODOTTO + '/findByCategoria/' + categoria);
   }
 
-  compra(id, quantitaDaAcquistare:number): Observable<User>{
-    return this.http.post<User>(BACKEND_URL_PRODOTTO + '/compra/' + [id, quantitaDaAcquistare], httpOptions);
+  compra(list): Observable<User> {
+    return this.http.post<User>(BACKEND_URL_PRODOTTO + '/compra', list, httpOptions);
   }
 
-  getListaProdottiAcquistati():Observable<Array<Prodotto>>{
-    let localStorageItem= JSON.parse(localStorage.getItem('prodottiAcquistati'))
+  getListaProdottiAcquistati(): Observable<Array<Prodotto>> {
+    let localStorageItem = JSON.parse(localStorage.getItem('prodottiAcquistati'))
     return localStorageItem
   }
 }

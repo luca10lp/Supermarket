@@ -3,6 +3,7 @@ import {ProdottoService} from "../../provider/prodotto.service";
 import {Router} from "@angular/router";
 import {SharedService} from "../../provider/shared.service";
 import {Prodotto} from "../prodotto";
+import {User} from "../user";
 
 @Component({
   selector: 'app-carrello',
@@ -13,7 +14,11 @@ export class CarrelloComponent implements OnInit {
 
   listaProdottiCarrello: Array<Prodotto> = new Array();
 
-  somma:number=0
+  user: User;
+
+  somma: number = 0
+
+  quantita: number
 
   prodotto: Prodotto;
 
@@ -43,11 +48,11 @@ export class CarrelloComponent implements OnInit {
 
   }
 
-  sommacarrello(){
+  sommacarrello() {
 
     this.listaProdottiCarrello = JSON.parse(localStorage.getItem('listaProdottiCarrello'))
-    for(let prodotto of this.listaProdottiCarrello){
-      this.somma+=prodotto.prezzoIvato
+    for (let prodotto of this.listaProdottiCarrello) {
+      this.somma += prodotto.prezzoIvato
       console.log(prodotto.prezzoIvato)
     }
     console.log(this.somma)
@@ -55,10 +60,16 @@ export class CarrelloComponent implements OnInit {
   }
 
 
-  clearBasket(prodotto){
+  clearBasket(prodotto) {
+  }
 
-
-
-      }
-
+  compra() {
+      this.prodottoService.compra(this.listaProdottiCarrello).subscribe(data => {
+        this.user = data;
+        console.log(data);
+        console.log(this.user);
+      }, err => {
+        console.error(err);
+      })
+    }
 }
