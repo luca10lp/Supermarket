@@ -53,6 +53,11 @@
   opacity: 1;
 }
 
+img{
+  width: 200px;
+  height: 200px;
+}
+
 div.product{
   width: 230px !important;
   height: 230px!important;

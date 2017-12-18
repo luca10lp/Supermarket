@@ -1,5 +1,5 @@
 body {
-  background-image: url("assets/supermarket-2384476_960_720.jpg");
+  background: url("assets/supermarket-2384476_960_720.jpg") fixed;
   background-size: 100%;
+  background-repeat: no-repeat;
 }
-/* You can add global styles to this file, and also import other style files */
