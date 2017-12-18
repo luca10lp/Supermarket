@@ -3,6 +3,9 @@ import {CartacreditoService} from "../../provider/cartacredito.service";
 import {ActivatedRoute} from "@angular/router";
 import {CarteDiCredito} from "../cartacredito";
 import {User} from "../user";
+import {UserService} from "../../provider/user.service";
+
+
 
 @Component({
   selector: 'app-cartacredito',
@@ -19,7 +22,9 @@ export class CartacreditoComponent implements OnInit {
   user: User;
 
 
-  constructor(private cartaService: CartacreditoService, private route: ActivatedRoute) {
+
+  constructor(private cartaService: CartacreditoService, private route: ActivatedRoute,userService: UserService) {
+    this.findByUserId(this.user)
   }
 
   ngOnInit() {
@@ -64,7 +69,6 @@ export class CartacreditoComponent implements OnInit {
   }
 
   findByUserId(idUser) {
-    idUser = +this.route.snapshot.paramMap.get('cartacredito');
     if (idUser !== 0) {
       this.cartaService.findByUserId(idUser).subscribe(data => {
         this.listaCarte = data;

@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {LoginService} from "../../provider/login.service";
 import {Router} from "@angular/router";
 import {SharedService} from "../../provider/shared.service";
+import swal from 'sweetalert2'
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,9 +27,16 @@ export class LoginComponent implements OnInit {
       this._sharedService.emitChange('logged=true');
       this.router.navigate(['prodotto'], {replaceUrl: true});
       location.reload()
-    }, err => {
+
+    }, err => {  swal(
+      'Oops...',
+      'User/Password wrong or inesistent',
+      'error'
+    )
+
       console.error(err);
     })
+
   }
 
 
