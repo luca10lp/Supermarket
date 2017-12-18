@@ -80,8 +80,8 @@ export class ProdottoComponent implements OnInit {
     })
   }
 
-  addprodotto(id, quantitaDaAcquistare: number) {
-      this.prodottoService.addprodotto(id, quantitaDaAcquistare).subscribe(data => {
+  compra(id, quantitaDaAcquistare: number) {
+      this.prodottoService.compra(id, quantitaDaAcquistare).subscribe(data => {
         console.log(data);
         console.log(this.user);
         this.user = data;

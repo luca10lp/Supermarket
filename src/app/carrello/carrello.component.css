@@ -24,6 +24,8 @@ body {
   padding: 25px 0;
 }
 
+::selection { background: #bdc0e8; }
+::-moz-selection { background: #bdc0e8; }
 
 br { display: block; line-height: 1.6em; }
 
