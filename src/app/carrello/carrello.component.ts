@@ -13,11 +13,14 @@ export class CarrelloComponent implements OnInit {
 
   listaProdottiCarrello: Array<Prodotto> = new Array();
 
-  prodotto: Prodotto
+  somma:number=0
+
+  prodotto: Prodotto;
 
   constructor(private prodottoService: ProdottoService, private router: Router, private _sharedService: SharedService) {
 
     this.findCarrello()
+    this.sommacarrello()
   }
 
 
@@ -39,6 +42,18 @@ export class CarrelloComponent implements OnInit {
     localStorage.setItem("listaProdottiCarrello", JSON.stringify(this.listaProdottiCarrello))
 
   }
+
+  sommacarrello(){
+
+    this.listaProdottiCarrello = JSON.parse(localStorage.getItem('listaProdottiCarrello'))
+    for(let prodotto of this.listaProdottiCarrello){
+      this.somma+=prodotto.prezzoIvato
+      console.log(prodotto.prezzoIvato)
+    }
+    console.log(this.somma)
+
+  }
+
 
   clearBasket(prodotto){
 

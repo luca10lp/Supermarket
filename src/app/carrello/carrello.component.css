@@ -21,12 +21,9 @@ body {
   font-size: 62.5%;
   line-height: 1;
   color: #414141;
-  background: white;
   padding: 25px 0;
 }
 
-::selection { background: #bdc0e8; }
-::-moz-selection { background: #bdc0e8; }
 
 br { display: block; line-height: 1.6em; }
 
