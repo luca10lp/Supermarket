@@ -67,7 +67,7 @@ export class ProdottoComponent implements OnInit {
   }
 
   openSnackBar(action: string) {
-    this.snackBar.open("Prodotto", "aggiunto", {
+    this.snackBar.open("Prodotto aggiunto al carrello", "", {
       duration: 2500,
   });
   }

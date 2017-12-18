@@ -19,7 +19,7 @@
       <tr  *ngFor=" let prodotto of listaProdottiCarrello">
         <!-- http://www.inkydeals.com/deal/ginormous-bundle/ -->
         <td><img src="{{prodotto.img}}"class="thumb"></td>
-        <td><input type="number" value="1" min="0" max="99" class="qtyinput" [(ngModel)]="prodotto.quantitaDaAcquistare"></td>
+        <td><input type="number" value="1" min="1" max="99" class="qtyinput" [(ngModel)]="prodotto.quantitaDaAcquistare"></td>
         <td>{{prodotto.marca}}</td>
         <td>${{prodotto.prezzoIvato}}</td>
         <td><span class="remove"><img src="https://i.imgur.com/h1ldGRr.png" alt="X"(click)="deleteProdotto(this.prodotto)"></span></td>

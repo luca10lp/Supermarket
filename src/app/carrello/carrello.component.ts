@@ -64,8 +64,7 @@ export class CarrelloComponent implements OnInit {
   }
 
   compra() {
-    for (let i=0; i<this.listaProdottiCarrello.length ; i++) {
-      this.prodottoService.compra(this.prodotto.id, this.prodotto.quantitaDaAcquistare).subscribe(data => {
+      this.prodottoService.compra(this.listaProdottiCarrello).subscribe(data => {
         this.user = data;
         console.log(data);
         console.log(this.user);
@@ -73,5 +72,4 @@ export class CarrelloComponent implements OnInit {
         console.error(err);
       })
     }
-  }
 }
