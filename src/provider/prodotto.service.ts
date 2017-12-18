@@ -52,7 +52,7 @@ export class ProdottoService {
   }
 
   compra(id, quantitaDaAcquistare:number): Observable<User>{
-    return this.http.post<User>(BACKEND_URL_PRODOTTO + '/compra/' + [id, quantitaDaAcquistare], httpOptions);
+    return this.http.post<User>(BACKEND_URL_PRODOTTO + '/compra/' + id + '/'+  quantitaDaAcquistare, httpOptions);
   }
 
   getListaProdottiAcquistati():Observable<Array<Prodotto>>{

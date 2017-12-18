@@ -73,16 +73,6 @@ export class ProdottoComponent implements OnInit {
     })
   }
 
-  compra(id, quantitaDaAcquistare: number) {
-      this.prodottoService.compra(id, quantitaDaAcquistare).subscribe(data => {
-        console.log(data);
-        console.log(this.user);
-        this.user = data;
-        console.log(this.user);
-      }, err => {
-        console.error(err);
-      })
-    }
 
   findAll() {
     this.prodottoService.findAll().subscribe(data => {
