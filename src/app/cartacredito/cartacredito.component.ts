@@ -27,6 +27,7 @@ export class CartacreditoComponent implements OnInit {
 
   save(cartacredito) {
     if (cartacredito !== null) {
+      console.info("Carta di credito" + this.cartacredito);
       this.cartaService.save(cartacredito).subscribe(data => {
         console.log(data);
         cartacredito = new CarteDiCredito;

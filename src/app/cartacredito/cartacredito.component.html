@@ -1,28 +1,12 @@
 <div class="cartadicredito">
   <h1>Le tue carte</h1>
 
-  <mat-grid-list cols="3" rowHeight="500px">
-  <mat-grid-tile *ngFor=" let cartacredito of listaCarte">
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="block span3">
 
-          <div class="info">
-            <span class="description">{{cartacredito.ccv}}
-        </span>
-            <button class="btn-primary">Cazzo</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </mat-grid-tile>
-  </mat-grid-list>
 
   <form (ngSubmit)="save(cartacredito)" #cartacredito="ngForm">
-    <input  type="text" name="numero" [(ngModel)]="cartacredito.numero" placeholder="Numero carta" required="required"/>
-    <input  type="text" name="cvv" [(ngModel)]="cartacredito.ccv" placeholder="Cvv" required="required"/>
-    <input  type="text" name="scadenza" [(ngModel)]="cartacredito.scadenza" placeholder="Scadenza" required="required"/>
+    <input type="text" name="numero" [(ngModel)]="cartacredito.numero" placeholder="Numero carta" required="required"/>
+    <input type="text" name="cvv" [(ngModel)]="cartacredito.ccv" placeholder="Cvv" required="required"/>
+    <input type="text" name="scadenza" [(ngModel)]="cartacredito.scadenza" placeholder="Scadenza" required="required"/>
     <button type="submit" class="btn btn-primary btn-block btn-large">Invio</button>
     <br>
   </form>
