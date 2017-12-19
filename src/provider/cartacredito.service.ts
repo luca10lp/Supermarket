@@ -26,15 +26,15 @@ export class CartacreditoService {
   }
 
   delete(id): Observable<CarteDiCredito> {
-    return this.http.delete<CarteDiCredito>(BACKEND_URL_CARTA + '/delete' + id);
+    return this.http.delete<CarteDiCredito>(BACKEND_URL_CARTA + '/delete/' + id);
   }
 
-  findByUserId(idUser: number): Observable<Array<CarteDiCredito>> {
-    return this.http.get<Array<CarteDiCredito>>(BACKEND_URL_CARTA + '/findByUserId' + idUser);
+  findByUserId(): Observable<Array<CarteDiCredito>> {
+    return this.http.get<Array<CarteDiCredito>>(BACKEND_URL_CARTA + '/findByUserId');
   }
 
   findById(id): Observable<CarteDiCredito> {
-    return this.http.get<CarteDiCredito>(BACKEND_URL_CARTA + '/findById' + id);
+    return this.http.get<CarteDiCredito>(BACKEND_URL_CARTA + '/findById/' + id);
   }
 
 

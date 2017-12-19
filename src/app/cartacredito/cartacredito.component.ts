@@ -24,7 +24,6 @@ export class CartacreditoComponent implements OnInit {
 
 
   constructor(private cartaService: CartacreditoService, private route: ActivatedRoute,userService: UserService) {
-    this.findByUserId(this.user)
   }
 
   ngOnInit() {
@@ -69,15 +68,15 @@ export class CartacreditoComponent implements OnInit {
     }
   }
 
-  findByUserId(idUser) {
-    if (idUser !== 0) {
-      this.cartaService.findByUserId(idUser).subscribe(data => {
+  findByUserId() {
+
+      this.cartaService.findByUserId().subscribe(data => {
         this.listaCarte = data;
+        console.log(data)
+
       }, err => {
         console.error(err);
       })
-    }
-
-  }
+      }
 
 }

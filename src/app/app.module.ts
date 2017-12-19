@@ -25,6 +25,7 @@ import {
 } from "@angular/material";
 import {CarrelloComponent} from "./carrello/carrello.component";
 import { HistoryComponent } from './history/history.component';
+import {HistoryService} from "../provider/history.service";
 
 
 
@@ -62,6 +63,7 @@ import { HistoryComponent } from './history/history.component';
     ProdottoService,
     LoginService,
     AuthGuardService,
+    HistoryService,
     SharedService,
     {
       provide: HTTP_INTERCEPTORS,

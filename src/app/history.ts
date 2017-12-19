@@ -1,23 +1,17 @@
 import {User} from "./user";
+import {Prodotto} from "./prodotto";
 
 export class History{
 
   id : number;
 
-  nome:string;
-
-  marca: string;
-
-  categoria: string;
-
-  unita: string;
-
-  prezzoIvato: number;
-
-  codOrdine: string;
-
-  quantita: number;
+  cod: string;
 
   user: User;
+
+  data:string;
+
+  listaProdotto: Prodotto[];
+
 
 }
