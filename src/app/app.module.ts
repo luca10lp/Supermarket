@@ -24,6 +24,7 @@ import {
   MatSnackBarModule
 } from "@angular/material";
 import {CarrelloComponent} from "./carrello/carrello.component";
+import { HistoryComponent } from './history/history.component';
 
 
 
@@ -37,6 +38,7 @@ import {CarrelloComponent} from "./carrello/carrello.component";
     CartacreditoComponent,
     UserComponent,
     CarrelloComponent,
+    HistoryComponent,
 
   ],
   imports: [
