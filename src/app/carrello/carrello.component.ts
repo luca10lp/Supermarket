@@ -41,13 +41,6 @@ export class CarrelloComponent implements OnInit {
 
   }
 
-  deleteProdotto(prodotto) {
-
-    this.listaProdottiCarrello.splice(this.listaProdottiCarrello.indexOf(prodotto), 1)
-    localStorage.setItem("listaProdottiCarrello", JSON.stringify(this.listaProdottiCarrello))
-
-  }
-
   sommacarrello() {
 
     this.listaProdottiCarrello = JSON.parse(localStorage.getItem('listaProdottiCarrello'))
@@ -59,9 +52,18 @@ export class CarrelloComponent implements OnInit {
 
   }
 
+  deleteProdotto(prodotto) {
 
-  clearBasket() {
-    this.listaProdottiCarrello = JSON.parse(localStorage.getItem('listaProdottiCarrello'))
+    this.listaProdottiCarrello.splice(this.listaProdottiCarrello.indexOf(prodotto), 1)
+    localStorage.setItem("listaProdottiCarrello", JSON.stringify(this.listaProdottiCarrello))
+
+  }
+
+  clearBasket(prodotto) {
+    for(prodotto of this.listaProdottiCarrello) {
+      this.listaProdottiCarrello.splice(this.listaProdottiCarrello.indexOf(prodotto), 1000)
+      localStorage.setItem("listaProdottiCarrello", JSON.stringify(this.listaProdottiCarrello))
+    }
   }
 
   compra() {
