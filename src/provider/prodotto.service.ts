@@ -5,6 +5,7 @@ import {CarteDiCredito} from "../app/cartacredito";
 import {User} from "../app/user";
 import {Observable} from "rxjs/Observable";
 import {BACKEND_URL_PRODOTTO} from "../app/util";
+import PrettyPrinter = jasmine.PrettyPrinter;
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -51,6 +52,10 @@ export class ProdottoService {
     return this.http.get<Array<Prodotto>>(BACKEND_URL_PRODOTTO + '/findByCategoria/' + categoria);
   }
 
+  findByNome(nome: string): Observable<Array<Prodotto>> {
+    return this.http.get<Array<Prodotto>>(BACKEND_URL_PRODOTTO + '/findByNome/' + nome);
+  }
+
   compra(list): Observable<User> {
     return this.http.post<User>(BACKEND_URL_PRODOTTO + '/compra', list, httpOptions);
   }
@@ -59,4 +64,6 @@ export class ProdottoService {
     let localStorageItem = JSON.parse(localStorage.getItem('prodottiAcquistati'))
     return localStorageItem
   }
+
+
 }
