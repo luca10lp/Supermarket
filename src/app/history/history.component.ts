@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HistoryService} from "../../provider/history.service";
 import {History} from "../history";
 import {User} from "../user";
@@ -11,13 +11,14 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class HistoryComponent implements OnInit {
 
-  selected: History=new History();
+  selected: History = new History();
 
-  history:History;
+  history: History;
 
-  listaHistory:Array<History> = new Array();
+  listaHistory: Array<History> = new Array();
+  listaProdotto = new Array();
 
-  constructor(  public historyService:HistoryService) {
+  constructor(public historyService: HistoryService) {
 
     this.findCodByUserId();
   }
@@ -52,19 +53,21 @@ export class HistoryComponent implements OnInit {
   }
 
   findCodByUserId() {
-      this.historyService.findCodByUser_id().subscribe(data => {
-        this.listaHistory = data;
-        console.log(data)
+    this.historyService.findCodByUser_id().subscribe(data => {
+      this.listaHistory = data;
+      console.log(data)
 
-      }, err => {
-        console.error(err);
-      })
-    }
+    }, err => {
+      console.error(err);
+    })
+  }
 
   selectedItem(c) {
     this.selected = c;
+    this.listaProdotto = c.listaProdotti;
+    console.log(c.id);
+    console.log(c.listaProdotti)
   }
-
 
 
 }

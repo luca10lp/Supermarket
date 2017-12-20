@@ -1,20 +1,34 @@
 <div class="page-header">
   <h3>Lista contatti</h3>
 </div>
-<div class="media"*ngFor="let c of listaHistory"
+<div class="media" *ngFor="let c of listaHistory"
+     data-toggle="modal" data-target="#myModal"
      (click)="selectedItem(c)">
-<mat-accordion >
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-       <h3> {{c.data}} </h3>
-      </mat-panel-title>
-      <mat-panel-description>
-        <h3>{{c.cod}}</h3>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    {{selected.}}<<<<<<<<<<<
-  </mat-expansion-panel>
 
-</mat-accordion>
+  <div class="media-body">
+    <h4 class="media-heading">{{c.cod}} {{c.data}}</h4>
+  </div>
 </div>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div *ngFor="let p of listaProdotto">
+
+          <p><span class="glyphicon glyphicon-earphone gliphy-style"></span> {{p.nome}}</p>
+          <p><span class="glyphicon glyphicon-envelope gliphy-style"></span> {{p.categoria}}</p>
+        </div>
+        </div>
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
