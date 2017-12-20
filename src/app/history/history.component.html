@@ -1,7 +1,8 @@
 <div class="page-header">
   <h3>Lista contatti</h3>
 </div>
-<div class="media"*ngFor="let c of listaHistory">
+<div class="media"*ngFor="let c of listaHistory"
+     (click)="selectedItem(c)">
 <mat-accordion >
   <mat-expansion-panel>
     <mat-expansion-panel-header>
@@ -12,7 +13,7 @@
         <h3>{{c.cod}}</h3>
       </mat-panel-description>
     </mat-expansion-panel-header>
-    {{c.listaProdotto}}<<<<<<<<<<<
+    {{selected.}}<<<<<<<<<<<
   </mat-expansion-panel>
 
 </mat-accordion>
