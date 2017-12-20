@@ -61,8 +61,8 @@ export class HistoryComponent implements OnInit {
       })
     }
 
-  selectedItem(h) {
-    this.selected = h;
+  selectedItem(c) {
+    this.selected = c;
   }
 
 

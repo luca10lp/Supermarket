@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
+import {MatExpansionModule} from '@angular/material/expansion';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -43,6 +43,7 @@ import {HistoryService} from "../provider/history.service";
 
   ],
   imports: [
+    MatExpansionModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
