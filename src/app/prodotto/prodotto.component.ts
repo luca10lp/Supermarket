@@ -44,6 +44,7 @@ export class ProdottoComponent implements OnInit {
 
     if (this.listaProdottiCarrello.length == 0) {
       this.listaProdottiCarrello.push(prod);
+      prod.quantitaDaAcquistare++;
       localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
     } else {
       while ( a != true) {

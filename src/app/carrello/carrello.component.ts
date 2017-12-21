@@ -22,6 +22,8 @@ export class CarrelloComponent implements OnInit {
 
   prodotto: Prodotto;
 
+  prezzoIvato: number;
+
   constructor(private prodottoService: ProdottoService, private router: Router, private _sharedService: SharedService) {
 
     this.findCarrello()
@@ -55,7 +57,7 @@ export class CarrelloComponent implements OnInit {
   deleteProdotto(prodotto) {
 
     this.listaProdottiCarrello.splice(this.listaProdottiCarrello.indexOf(prodotto), 1)
-    this.somma=this.somma-this.prodotto.prezzoIvato;
+    this.somma=this.somma-prodotto.prezzoIvato;
     localStorage.setItem("listaProdottiCarrello", JSON.stringify(this.listaProdottiCarrello))
     location.reload()
   }
