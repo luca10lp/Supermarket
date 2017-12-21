@@ -5,7 +5,6 @@ import {CarteDiCredito} from "../app/cartacredito";
 import {User} from "../app/user";
 import {Observable} from "rxjs/Observable";
 import {BACKEND_URL_PRODOTTO} from "../app/util";
-import PrettyPrinter = jasmine.PrettyPrinter;
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})

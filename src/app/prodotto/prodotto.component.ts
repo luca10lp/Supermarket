@@ -37,11 +37,32 @@ export class ProdottoComponent implements OnInit {
   }
 
   aggiungiAlCarrello(prod: Prodotto) {
-    this.listaProdottiCarrello = <Array<Prodotto>>JSON.parse(localStorage.getItem("listaProdottiCarrello"))
-    console.log(this.listaProdottiCarrello)
-    this.listaProdottiCarrello.push(prod);
-    localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
+    let a: boolean;
+    this.listaProdottiCarrello = <Array<Prodotto>>JSON.parse(localStorage.getItem("listaProdottiCarrello"));
     console.log(this.listaProdottiCarrello);
+
+    if (this.listaProdottiCarrello.length == 0) {
+      this.listaProdottiCarrello.push(prod);
+      localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
+    } else {
+      for (let p of this.listaProdottiCarrello) {
+        console.log(p);
+        if (p.nome === prod.nome && p.dataDiScadenza === prod.dataDiScadenza && p.prezzoIvato === prod.prezzoIvato ) {
+          console.log("so uguali");
+          a = true;
+        } else {
+          console.log("so diversi");
+          a = false;
+        }
+      }
+      if(a){
+        
+      }else{
+        this.listaProdottiCarrello.push(prod);
+        localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
+        console.log(this.listaProdottiCarrello);
+      }
+    }
   }
 
   saveOrUpdateProdotto(prodotto) {
