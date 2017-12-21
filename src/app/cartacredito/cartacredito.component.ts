@@ -6,46 +6,42 @@ import {User} from "../user";
 import {UserService} from "../../provider/user.service";
 
 
-
 @Component({
   selector: 'app-cartacredito',
   templateUrl: './cartacredito.component.html',
   styleUrls: ['./cartacredito.component.css'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class CartacreditoComponent implements OnInit {
 
-  listaCarte: Array<CarteDiCredito> = new Array();
+  selected: CarteDiCredito = new CarteDiCredito();
 
-  cartacredito: CarteDiCredito;
+
+  listaCarte: Array<CarteDiCredito>;
+
+  cartacredito: CarteDiCredito=new CarteDiCredito;
 
   user: User;
 
 
 
   constructor(private cartaService: CartacreditoService, private route: ActivatedRoute,userService: UserService) {
+    this.findByUserId();
   }
 
   ngOnInit() {
   }
 
   save(cartacredito) {
-    if (cartacredito !== null) {
-      console.info("Carta di credito" + this.cartacredito);
-      this.cartaService.save(cartacredito).subscribe(data => {
-        console.log(data);
-        cartacredito = new CarteDiCredito;
-      }, err => {
-        console.error(err);
-      })
-    } else {
+
       this.cartaService.save(cartacredito).subscribe(data => {
         console.log(data);
       }, err => {
         console.error(err);
       })
     }
-  }
+
 
   delete(id) {
     id = +this.route.snapshot.paramMap.get('cartacredito');
@@ -78,5 +74,15 @@ export class CartacreditoComponent implements OnInit {
         console.error(err);
       })
       }
+
+
+  selectedItem(c) {
+    this.selected = c;
+    this.listaCarte = c.listaProdotti;
+    console.log(c.id);
+    console.log(c.listaProdotti)
+  }
+
+
 
 }

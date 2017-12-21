@@ -1,9 +1,14 @@
-<div class="media" *ngFor="let c of listaCarte"
-     data-toggle="modal" data-target="#myModal">
-  <div class="media-left">
-    <img src="photo" class="media-object" style="width:60px">
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">{{c.numero}} </h4>
-  </div>
+<div class="centro">
+  <h1>Scegli la carta</h1>
 </div>
+<mat-card class="media" *ngFor="let c of listaCarte"
+     data-toggle="modal" data-target="#myModal">
+
+  <div class="media-body">
+    <h3 class="media-heading">N° carta: {{c.numero}}</h3>
+    <h5>Scad: {{c.scadenza}}</h5>
+  </div>
+</mat-card>
+
+<button id="submitbtn"(click)="compra()">Buy Now!</button>
+

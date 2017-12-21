@@ -4,7 +4,7 @@ export class CarteDiCredito {
 
   id: number;
 
-  numero: number;
+  numero: string;
 
   scadenza: string;
 
