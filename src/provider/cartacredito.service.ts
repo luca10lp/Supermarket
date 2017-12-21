@@ -2,8 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {CarteDiCredito} from "../app/cartacredito";
 import {Observable} from "rxjs/Observable";
-import {BACKEND_URL, BACKEND_URL_CARTA} from "../app/util";
-import {User} from "../app/user";
+import {BACKEND_URL_CARTA} from "../app/util";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -11,12 +10,6 @@ const httpOptions = {
 
 @Injectable()
 export class CartacreditoService {
-
-  cartacredito: CarteDiCredito;
-
-  user: User;
-
-  id: number;
 
   constructor(private http: HttpClient) {
   }

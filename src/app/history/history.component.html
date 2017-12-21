@@ -10,25 +10,25 @@
   </div>
 </div>
 
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
 
-        <div class="modal-body">
-          <div *ngFor="let p of listaProdotto">
+      <div class="modal-body">
+        <div *ngFor="let p of listaProdotto">
 
-          <p><span class="glyphicon glyphicon-earphone gliphy-style"></span> {{p.nome}}</p>
-          <p><span class="glyphicon glyphicon-envelope gliphy-style"></span> {{p.categoria}}</p>
+          <p>{{p.categoria}}-{{p.nome}}-{{p.marca}}</p>
+          <p class="right">{{p.prezzoIvato}}</p>
         </div>
-        </div>
+      </div>
 
-        <div class="modal-footer">
+      <div class="modal-footer">
 
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
+</div>
