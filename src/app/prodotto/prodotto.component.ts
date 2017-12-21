@@ -37,7 +37,6 @@ export class ProdottoComponent implements OnInit {
   }
 
   aggiungiAlCarrello(prod: Prodotto) {
-    let a: boolean;
     this.listaProdottiCarrello = <Array<Prodotto>>JSON.parse(localStorage.getItem("listaProdottiCarrello"));
     console.log(this.listaProdottiCarrello);
 
@@ -45,25 +44,44 @@ export class ProdottoComponent implements OnInit {
       this.listaProdottiCarrello.push(prod);
       localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
     } else {
-      for (let p of this.listaProdottiCarrello) {
-        console.log(p);
-        if (p.nome === prod.nome && p.dataDiScadenza === prod.dataDiScadenza && p.prezzoIvato === prod.prezzoIvato ) {
-          console.log("so uguali");
-          a = true;
-        } else {
-          console.log("so diversi");
-          a = false;
+      let b: boolean;
+      for (let a: boolean; a != true;) {
+        for (let p of this.listaProdottiCarrello) {
+          if (p.nome === prod.nome && p.dataDiScadenza === prod.dataDiScadenza && p.prezzoIvato === prod.prezzoIvato) {
+            a = true;
+          }
+          b = a;
+
         }
-      }
-      if(a){
-        
-      }else{
-        this.listaProdottiCarrello.push(prod);
-        localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
-        console.log(this.listaProdottiCarrello);
+        if (b != true) {
+          this.listaProdottiCarrello.push(prod);
+          localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
+          console.log(this.listaProdottiCarrello);
+        }
       }
     }
   }
+      //   console.log(p);
+      //    let a: boolean = false;
+      //    if (p.nome === prod.nome && p.dataDiScadenza === prod.dataDiScadenza && p.prezzoIvato === prod.prezzoIvato) {
+      //     console.log("so uguali");
+      //     a = true;
+      //   } else {
+      //     console.log("so diversi");
+      //
+      //
+      //   }
+      //   if (a == false) {
+      //     console.log("A: " + a);
+      //     this.listaProdottiCarrello.push(prod);
+      //     localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
+      //     console.log(this.listaProdottiCarrello);
+      //   } else {
+      //     console.log("A: " + a);
+      //     a=false;
+      //   }
+      // }
+
 
   saveOrUpdateProdotto(prodotto) {
     this.prodottoService.saveOrUpdateProdotto(prodotto).subscribe(data => {
