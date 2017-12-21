@@ -1,12 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {HttpHeaders} from "@angular/common/http";
 import {ProdottoService} from "../../provider/prodotto.service";
 import {Prodotto} from "../prodotto";
 import {User} from "../user";
-import {LoginService} from "../../provider/login.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {SharedService} from "../../provider/shared.service";
-import { Location } from '@angular/common';
 import {MatSnackBar} from "@angular/material";
 
 
@@ -18,7 +13,9 @@ import {MatSnackBar} from "@angular/material";
 })
 export class ProdottoComponent implements OnInit {
 
-  listaProdotti: Array<Prodotto>=new Array();
+  listaProdotti: Array<Prodotto> = new Array();
+
+  listaRicerca: Array<Prodotto> = new Array();
 
   prodotto: Prodotto;
 
@@ -26,27 +23,28 @@ export class ProdottoComponent implements OnInit {
 
   listaProdottiCarrello: Array<Prodotto> = new Array;
 
-  logged=false;
+  logged = false;
 
   user: User;
+
+  cerca: string;
 
   constructor(private prodottoService: ProdottoService, public snackBar: MatSnackBar) {
     this.findAll();
   }
 
   ngOnInit() {
-
   }
 
-  aggiungiAlCarrello(prod:Prodotto) {
-    this.listaProdottiCarrello=<Array<Prodotto>>JSON.parse(localStorage.getItem("listaProdottiCarrello")  )
+  aggiungiAlCarrello(prod: Prodotto) {
+    this.listaProdottiCarrello = <Array<Prodotto>>JSON.parse(localStorage.getItem("listaProdottiCarrello"))
     console.log(this.listaProdottiCarrello)
-      this.listaProdottiCarrello.push(prod);
-      localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
-      console.log(this.listaProdottiCarrello);
-    }
+    this.listaProdottiCarrello.push(prod);
+    localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
+    console.log(this.listaProdottiCarrello);
+  }
 
-    saveOrUpdateProdotto(prodotto) {
+  saveOrUpdateProdotto(prodotto) {
     this.prodottoService.saveOrUpdateProdotto(prodotto).subscribe(data => {
       console.log(data);
       prodotto = new Prodotto;
@@ -54,7 +52,6 @@ export class ProdottoComponent implements OnInit {
       console.error(err);
     })
   }
-
 
 
   findById(id) {
@@ -68,7 +65,7 @@ export class ProdottoComponent implements OnInit {
   openSnackBar(action: string) {
     this.snackBar.open("Prodotto aggiunto al carrello", "", {
       duration: 2500,
-  });
+    });
   }
 
   findByCategoria(categoria: string) {
@@ -79,11 +76,19 @@ export class ProdottoComponent implements OnInit {
     })
   }
 
+  search() {
+    if (this.cerca != null) {
+      this.listaRicerca = this.listaProdotti;
+      this.listaRicerca = this.listaRicerca.filter(prod =>
+        prod.marca.toLowerCase().includes(this.cerca.toLowerCase()) || prod.nome.toLowerCase().includes(this.cerca.toLowerCase())
+      );
+    }
+  }
 
   findAll() {
     this.prodottoService.findAll().subscribe(data => {
       this.listaProdotti = data;
-
+      this.listaRicerca = this.listaProdotti;
     }, err => {
       console.error(err);
     })
@@ -93,7 +98,7 @@ export class ProdottoComponent implements OnInit {
     this.selected = p;
   }
 
-  refresh(){
+  refresh() {
     location.reload()
   }
 

@@ -1,6 +1,10 @@
+<div>
+<span class="glyphicons glyphicons-search">
+  <input class="searchBox" placeholder="Ricerca" maxlength="9" size="9" type="text" [(ngModel)]="cerca" (keyup)="search()">
+</span></div>
 
 <mat-grid-list cols="3" rowHeight="500px">
-  <mat-grid-tile *ngFor=" let p of listaProdotti"(click)="selectedItem(p)">
+  <mat-grid-tile *ngFor=" let p of listaRicerca"(click)="selectedItem(p)">
     <br>
     <div class="container">
       <div class="row">
