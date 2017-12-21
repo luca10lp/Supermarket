@@ -29,6 +29,8 @@ export class ProdottoComponent implements OnInit {
 
   cerca: string;
 
+
+
   constructor(private prodottoService: ProdottoService, public snackBar: MatSnackBar) {
     this.findAll();
   }
@@ -39,28 +41,44 @@ export class ProdottoComponent implements OnInit {
   aggiungiAlCarrello(prod: Prodotto) {
     this.listaProdottiCarrello = <Array<Prodotto>>JSON.parse(localStorage.getItem("listaProdottiCarrello"));
     console.log(this.listaProdottiCarrello);
-
-    if (this.listaProdottiCarrello.length == 0) {
+    if(this.listaProdottiCarrello.length==0){
       this.listaProdottiCarrello.push(prod);
+      prod.quantitaDaAcquistare=1;
       localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
-    } else {
-      let b: boolean;
-      for (let a: boolean; a != true;) {
-        for (let p of this.listaProdottiCarrello) {
-          if (p.nome === prod.nome && p.dataDiScadenza === prod.dataDiScadenza && p.prezzoIvato === prod.prezzoIvato) {
-            a = true;
-          }
-          b = a;
-
-        }
-        if (b != true) {
-          this.listaProdottiCarrello.push(prod);
-          localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
-          console.log(this.listaProdottiCarrello);
-        }
+    }
+    else{
+      for (let p of this.listaProdottiCarrello) {
+      if (p.nome == prod.nome) {
+        prod.quantitaDaAcquistare++
+        localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
+      }
+      else {
+        this.listaProdottiCarrello.push(prod);
+        localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
       }
     }
+    }
   }
+
+
+
+  // let a = false
+  // for (let p of this.listaProdottiCarrello) {
+  //     if (p.nome === prod.nome) {
+  //           prod.quantitaDaAcquistare++
+  //           localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
+  //           console.log("else "+ prod.quantitaDaAcquistare)
+  //         a = true;
+  //         }
+  //       }
+  //       if (a != true) {
+  //         this.listaProdottiCarrello.push(prod);
+  //         localStorage.setItem('listaProdottiCarrello', JSON.stringify(this.listaProdottiCarrello));
+  //         console.log(this.listaProdottiCarrello);
+  //       }
+  //     }
+
+
       //   console.log(p);
       //    let a: boolean = false;
       //    if (p.nome === prod.nome && p.dataDiScadenza === prod.dataDiScadenza && p.prezzoIvato === prod.prezzoIvato) {
